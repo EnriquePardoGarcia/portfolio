@@ -37,7 +37,7 @@ function Experience() {
                         <h3>
                           <span className="purple">Data Engineer Intern</span>
                         </h3>
-                        <span className="experience-date">2024 - 2025</span>
+                        <span className="experience-date">September - October 2025</span>
                       </div>
                       <p className="experience-company">
                         <span className="purple">ENXENIO S.L.</span> — Galicia, Spain
