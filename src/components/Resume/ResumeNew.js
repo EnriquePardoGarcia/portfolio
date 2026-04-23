@@ -5,10 +5,14 @@ import Particle from "../Particle";
 import pdf from "../../Assets/CV_PardoGarcia_Enrique_EN.pdf";
 import { AiOutlineDownload } from "react-icons/ai";
 import { Document, Page, pdfjs } from "react-pdf";
+import { useLanguage } from "../../contexts/LanguageContext";
+import { translations } from "../../config/translations";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 function ResumeNew() {
+  const { language } = useLanguage();
+  const t = (key) => translations[language]?.[key] || translations.es[key] || key;
   const [width, setWidth] = useState(1200);
 
   useEffect(() => {
@@ -27,7 +31,7 @@ function ResumeNew() {
             style={{ maxWidth: "250px" }}
           >
             <AiOutlineDownload />
-            &nbsp;Download CV
+            &nbsp;{t("downloadResume")}
           </Button>
         </Row>
 
@@ -46,7 +50,7 @@ function ResumeNew() {
             style={{ maxWidth: "250px" }}
           >
             <AiOutlineDownload />
-            &nbsp;Download CV
+            &nbsp;{t("downloadResume")}
           </Button>
         </Row>
       </Container>

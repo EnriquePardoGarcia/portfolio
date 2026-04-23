@@ -9,8 +9,12 @@ import Type from "./Type";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 import { AiFillGithub } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
+import { useLanguage } from "../../contexts/LanguageContext";
+import { translations } from "../../config/translations";
 
 function Home() {
+  const { language } = useLanguage();
+  const t = (key) => translations[language]?.[key] || translations.es[key] || key;
   const { ref: headerRef } = useScrollAnimation('fadeInLeft', 0.1);
   const { ref: logoRef } = useScrollAnimation('fadeInRight', 0.1);
   return (
@@ -21,7 +25,7 @@ function Home() {
           <Row>
             <Col md={7} className="home-header" ref={headerRef}>
               <h1 style={{ paddingBottom: 15 }} className="heading">
-                Hello, I'm
+                {t("hello")}
               </h1>
 
               <h1 className="heading-name">
@@ -49,9 +53,10 @@ function Home() {
       <Container>
         <Row style={{ paddingTop: "50px", paddingBottom: "80px" }}>
           <Col md={12} className="home-about-social">
-            <h1>Find Me On</h1>
+            <h1>{t("findMeOn")}</h1>
             <p>
-              Feel free to <span className="purple">connect </span>with me
+              {t("feelFree")} <span className="purple">{t("connect")} </span>
+              {t("withMe")}
             </p>
             <ul className="home-about-social-links">
               <li className="social-icons">

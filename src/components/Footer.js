@@ -2,8 +2,12 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { AiFillGithub } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
+import { useLanguage } from "../contexts/LanguageContext";
+import { translations } from "../config/translations";
 
 function Footer() {
+  const { language } = useLanguage();
+  const t = (key) => translations[language]?.[key] || translations.es[key] || key;
   let date = new Date();
   let year = date.getFullYear();
   return (
@@ -20,7 +24,7 @@ function Footer() {
             <li className="social-icons">
               <a
                 href="https://github.com/EnriquePardoGarcia"
-                style={{ color: "white" }}
+                style={{ color: "var(--text-color)" }}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -30,7 +34,7 @@ function Footer() {
             <li className="social-icons">
               <a
                 href="https://www.linkedin.com/in/enrique-pardo-garcía-7b4228388"
-                style={{ color: "white" }}
+                style={{ color: "var(--text-color)" }}
                 target="_blank"
                 rel="noopener noreferrer"
               >

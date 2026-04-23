@@ -11,10 +11,14 @@ import {
 
 import { CgFileDocument } from "react-icons/cg";
 import { MdWork } from "react-icons/md";
+import { useLanguage } from "../contexts/LanguageContext";
+import { translations } from "../config/translations";
 
 function NavBar() {
   const [expand, updateExpanded] = useState(false);
   const [navColour, updateNavbar] = useState(false);
+  const { language, toggleLanguage } = useLanguage();
+  const t = (key) => translations[language]?.[key] || translations.es[key] || key;
 
   function scrollHandler() {
     if (window.scrollY >= 20) {
@@ -64,7 +68,7 @@ function NavBar() {
           <Nav className="ms-auto" defaultActiveKey="#home">
             <Nav.Item>
               <Nav.Link as={Link} to="/" onClick={() => updateExpanded(false)}>
-                <AiOutlineHome style={{ marginBottom: "2px" }} /> Home
+                <AiOutlineHome style={{ marginBottom: "2px" }} /> {t("home")}
               </Nav.Link>
             </Nav.Item>
 
@@ -74,7 +78,7 @@ function NavBar() {
                 to="/about"
                 onClick={() => updateExpanded(false)}
               >
-                <AiOutlineUser style={{ marginBottom: "2px" }} /> About
+                <AiOutlineUser style={{ marginBottom: "2px" }} /> {t("about")}
               </Nav.Link>
             </Nav.Item>
 
@@ -84,7 +88,7 @@ function NavBar() {
                 to="/experience"
                 onClick={() => updateExpanded(false)}
               >
-                <MdWork style={{ marginBottom: "2px" }} /> Experience
+                <MdWork style={{ marginBottom: "2px" }} /> {t("experience")}
               </Nav.Link>
             </Nav.Item>
 
@@ -97,7 +101,7 @@ function NavBar() {
                 <AiOutlineFundProjectionScreen
                   style={{ marginBottom: "2px" }}
                 />{" "}
-                Projects
+                {t("projects")}
               </Nav.Link>
             </Nav.Item>
 
@@ -107,10 +111,21 @@ function NavBar() {
                 to="/resume"
                 onClick={() => updateExpanded(false)}
               >
-                <CgFileDocument style={{ marginBottom: "2px" }} /> Resume
+                <CgFileDocument style={{ marginBottom: "2px" }} /> {t("resume")}
               </Nav.Link>
             </Nav.Item>
 
+            <Nav.Item>
+              <Nav.Link
+                onClick={() => {
+                  toggleLanguage();
+                  updateExpanded(false);
+                }}
+                className="lang-toggle"
+              >
+                {language === "es" ? "EN" : "ES"}
+              </Nav.Link>
+            </Nav.Item>
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -1,14 +1,20 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Row, Col } from "react-bootstrap";
+import { useLanguage } from "../../contexts/LanguageContext";
+import { translations } from "../../config/translations";
 
-const skills = [
-  { label: "Deep Learning", value: 90, color: "#c770f0" },
-  { label: "Computer Vision", value: 87, color: "#a855f7" },
-  { label: "NLP & Search", value: 84, color: "#9333ea" },
-  { label: "Distributed Systems", value: 81, color: "#c770f0" },
-  { label: "Data Engineering", value: 85, color: "#a855f7" },
-  { label: "ML & Statistics", value: 88, color: "#9333ea" },
-];
+function Github() {
+  const { language } = useLanguage();
+  const t = (key) => translations[language]?.[key] || translations.es[key] || key;
+  
+  const skills = [
+    { label: language === "es" ? t("deepLearningES") : "Deep Learning", value: 90, color: "#c770f0" },
+    { label: language === "es" ? t("computerVisionES") : "Computer Vision", value: 87, color: "#a855f7" },
+    { label: language === "es" ? t("nlpSearchES") : "NLP & Search", value: 84, color: "#9333ea" },
+    { label: language === "es" ? t("distributedSystemsES") : "Distributed Systems", value: 81, color: "#c770f0" },
+    { label: language === "es" ? t("dataEngineeringES") : "Data Engineering", value: 85, color: "#a855f7" },
+    { label: language === "es" ? t("mlStatisticsES") : "ML & Statistics", value: 88, color: "#9333ea" },
+  ];
 
 const RADIUS = 52;
 const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
@@ -72,7 +78,6 @@ function SkillRing({ label, value, color, animate }) {
   );
 }
 
-function Github() {
   const [animate, setAnimate] = useState(false);
   const ref = useRef(null);
 
@@ -88,10 +93,16 @@ function Github() {
   return (
     <Row style={{ justifyContent: "center", paddingBottom: "40px" }} ref={ref}>
       <h1 className="project-heading" style={{ paddingBottom: "20px" }}>
-        Domain <strong className="purple">Expertise</strong>
+        {language === "es" ? (
+          <>{t("domainLabel1ES")} <strong className="purple">{t("domainLabel2ES")}</strong></>
+        ) : (
+          <>{t("domainLabel1EN")} <strong className="purple">{t("domainLabel2EN")}</strong></>
+        )}
       </h1>
       <p style={{ color: "#aaaaaa", textAlign: "center", maxWidth: "600px", margin: "0 auto 30px" }}>
-        Self-assessed proficiency across core technical domains, validated through research projects and professional experience.
+        {language === "es" 
+          ? t("selfAssessedProficiencyES")
+          : t("selfAssessedProficiencyEN")}
       </p>
       <Col md={10}>
         <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
