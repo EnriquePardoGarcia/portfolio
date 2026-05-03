@@ -2,12 +2,8 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { AiFillGithub } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
-import { useLanguage } from "../contexts/LanguageContext";
-import { translations } from "../config/translations";
 
 function Footer() {
-  const { language } = useLanguage();
-  const t = (key) => translations[language]?.[key] || translations.es[key] || key;
   let date = new Date();
   let year = date.getFullYear();
   return (
