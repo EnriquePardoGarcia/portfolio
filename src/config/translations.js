@@ -95,7 +95,9 @@ export const translations = {
     iotMalwareDesc: "Análisis distribuido de big data para ciberseguridad. Utiliza Apache Spark para análisis de tráfico de red a gran escala, implementa algoritmos de detección de anomalías e identifica patrones de comportamiento malicioso de dispositivos IoT en entornos de datos en streaming.",
     maritimeVisualTitle: "Clasificación Visual Marítima en Smartports",
     maritimeVisualDesc: "Aprendizaje profundo para operaciones portuarias marítimas. Implementa clasificación multi-tarea (detección de barcos, estado de atraque) usando PyTorch con ResNet18, estudios de ablación completos y optimización de inferencia en tiempo real para entornos de puertos inteligentes.",
-    
+    octSegmentationTitle: "Segmentación de Fluido Patológico en OCT con U-Net",
+    octSegmentationDesc: "Estudio de ablación sobre segmentación semántica de fluido retiniano en imágenes de Tomografía de Coherencia Óptica (OCT). Compara seis configuraciones de U-Net (encoder desde cero vs. ResNet34 preentrenado en ImageNet, pérdidas BCE/Dice/BCE+Dice y aumento de datos) con validación cruzada de 5 pliegues sobre 50 pares imagen-máscara. La configuración óptima (ResNet34 + BCE+Dice) alcanza Dice = 0.824 ± 0.010, IoU = 0.716 y AUC-ROC = 0.993.",
+
     // Resume
     resumeSection: "Mi CV",
     downloadResume: "Descargar CV",
@@ -215,7 +217,9 @@ export const translations = {
     iotMalwareDesc: "Distributed big data analytics for cybersecurity. Uses Apache Spark for large-scale network traffic analysis, implements anomaly detection algorithms, and identifies malicious IoT device behavior patterns in streaming data environments.",
     maritimeVisualTitle: "Maritime Visual Classification at Smartports",
     maritimeVisualDesc: "Deep learning for maritime port operations. Implements multi-task classification (ship detection, docking status) using PyTorch with ResNet18, comprehensive ablation studies, and real-time inference optimization for smart port environments.",
-    
+    octSegmentationTitle: "Pathological Fluid Segmentation in OCT with U-Net",
+    octSegmentationDesc: "Ablation study on semantic segmentation of retinal fluid in Optical Coherence Tomography (OCT) images. Compares six U-Net configurations (scratch encoder vs. ImageNet-pretrained ResNet34, BCE/Dice/BCE+Dice losses, and data augmentation) with 5-fold cross-validation on 50 image-mask pairs. The optimal configuration (ResNet34 + BCE+Dice) achieves Dice = 0.824 ± 0.010, IoU = 0.716, and AUC-ROC = 0.993.",
+
     // Resume
     resumeSection: "My Resume",
     downloadResume: "Download CV",

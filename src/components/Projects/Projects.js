@@ -11,6 +11,7 @@ import clinicalNlp from "../../Assets/Projects/clinical_ir.png";
 import iotMalware from "../../Assets/Projects/iot_malware.jpg";
 import maritime from "../../Assets/Projects/maritime_real.jpg";
 import datathon from "../../Assets/Projects/datathon.png";
+import octSeg from "../../Assets/Projects/clinical_oct.jpg";
 
 function Projects() {
   const { language } = useLanguage();
@@ -92,6 +93,16 @@ function Projects() {
               title={t("maritimeVisualTitle")}
               description={t("maritimeVisualDesc")}
               ghLink="https://github.com/EnriquePardoGarcia/Smartports-Visual-Classifications"
+            />
+          </Col>
+
+          <Col md={4} className="project-card stagger-1">
+            <ProjectCard
+              imgPath={octSeg}
+              isBlog={false}
+              title={t("octSegmentationTitle")}
+              description={t("octSegmentationDesc")}
+              ghLink="https://github.com/EnriquePardoGarcia/Segmentaci-n-de-Fluido-Patol-gico"
             />
           </Col>
         </Row>
